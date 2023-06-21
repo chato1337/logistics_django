@@ -23,18 +23,18 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.urls import include
 
-from customer.views import CustomerViewSet
-from delivery.views import DeliveryViewSet
+from customer.views import CustomerDeliveryViewSet, CustomerViewSet
+from delivery.views import DeliveryPackagesViewSet, DeliveryViewSet
 from package.views import PackageViewSet
 
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Snippets API",
+        title="Logistics API",
         default_version='v1',
-        description="Test description",
+        description="A powerfull logistics Api Rest",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@snippets.local"),
+        contact=openapi.Contact(email="chato1337@gmail.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
@@ -51,6 +51,8 @@ router.register(r'delivery', DeliveryViewSet)
 
 urlpatterns = [
     path(base_url, include((router.urls, 'logistics'), namespace='logistics_app')),
+    path(base_url + 'customer-delivery/<int:pk>/', CustomerDeliveryViewSet.as_view({'get': 'list'})),
+    path(base_url + 'delivery-package/<int:pk>/', DeliveryPackagesViewSet.as_view({'get': 'list'})),
     path('admin/', admin.site.urls),
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
