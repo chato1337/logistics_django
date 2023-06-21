@@ -9,6 +9,9 @@ markdown = "*"
 django-filter = "*"
 django-cors-headers = "*"
 drf-yasg = "*"
+psycopg2 = "*"
+django-environ = "*"
+faker = "*"
 
 [dev-packages]
 
