@@ -4,6 +4,7 @@ from delivery.models import Delivery
 
 # Create your models here.
 class Package(models.Model):
+    content = models.CharField(max_length=64)
     weight = models.CharField(max_length=25)
     address_from = models.CharField(max_length=45)
     address_to = models.CharField(max_length=45)
