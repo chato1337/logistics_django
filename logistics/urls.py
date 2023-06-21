@@ -18,8 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import re_path
 from rest_framework import permissions
+from rest_framework.routers import DefaultRouter
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.urls import include
+
+from customer.views import CustomerViewSet
+from delivery.views import DeliveryViewSet
+from package.views import PackageViewSet
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -36,7 +43,14 @@ schema_view = get_schema_view(
 
 base_url = 'api/v1/'
 
+router = DefaultRouter()
+
+router.register(r'customer', CustomerViewSet)
+router.register(r'package', PackageViewSet)
+router.register(r'delivery', DeliveryViewSet)
+
 urlpatterns = [
+    path(base_url, include((router.urls, 'logistics'), namespace='logistics_app')),
     path('admin/', admin.site.urls),
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
