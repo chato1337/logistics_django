@@ -16,7 +16,7 @@ Key Features:
 
 ## Live Preview & Docs by Swagger
 
-you can try every route applications on `https://chatuz.site/swagger/`
+you can try every route applications on [https://chatuz.site/swagger/](https://chatuz.site/swagger/)
 
 ## Quick install with docker
 
