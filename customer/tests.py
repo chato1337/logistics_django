@@ -19,3 +19,8 @@ class CustomerTestCase(APITestCase):
     def test_create_customer_bad(self):
         response = self.client.post(self.url, {}, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_get_customer_by_id(self):
+        customer = CustomerFactory().create_customer()
+        response = self.client.get(self.url + str(customer.pk) + '/', {}, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
