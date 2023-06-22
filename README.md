@@ -14,9 +14,9 @@ Key Features:
     
 4.  Customizable Endpoints: LogisticsPro offers a flexible RESTful API architecture, allowing you to customize endpoints based on your specific requirements. Create endpoints to display the list of packages sent by a particular customer, facilitating easy access to relevant information. Additionally, LogisticsPro provides endpoints to view packages assigned to specific carriers, enabling efficient monitoring and coordination. Furthermore, the API supports endpoints for creating, editing, and deleting packages, providing complete control and adaptability.
 
-## Docs by Swagger
+## Live Preview & Docs by Swagger
 
-you can try every route applications on `http://localhost/swagger`
+you can try every route applications on `https://chatuz.site/swagger/`
 
 ## Quick install with docker
 
